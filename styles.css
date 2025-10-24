@@ -1,0 +1,132 @@
+/* =========================================================
+   PALETA (inspirada en Erco + navbar verde limón solicitado)
+   ========================================================= */
+:root{
+  --solar-yellow: #FFCC00;   /* Botones / CTA principal */
+  --solar-yellow-dark: #E6B800; /* Hover botones */
+  --text-dark: #222222;
+  --text-body: #333333;
+  --bg-light: #F8F9FA;
+  --lime: #A3D900;               /* Verde limón base */
+  --lime-rgba: rgba(168, 222, 6, 0.5); /* Navbar translucida */
+}
+
+/* Tipografía general */
+body{
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: var(--text-body);
+  background: var(--bg-light);
+  line-height: 1.6;
+}
+
+/* ===================================
+   NAVBAR: verde limón con transparencia
+   =================================== */
+.navbar-lime{
+  background: var(--lime-rgba); /* Solicitud del usuario */
+  backdrop-filter: blur(6px);   /* sutil, moderno */
+}
+.navbar-brand-logo{
+  width: 34px; height: 34px; margin-right: .5rem;
+}
+.nav-link{
+  font-weight: 600;
+  font-size: large;
+}
+.nav-link:hover,.nav-link:focus{
+  text-decoration: underline;
+}
+
+/* ==========================
+   BOTONES estilo Erco (CTA)
+   ========================== */
+.btn-solar{
+  background: var(--solar-yellow);
+  color: #000;           /* alto contraste sobre amarillo */
+  border: 0;
+  font-weight: 700;
+}
+.btn-solar:hover{
+  background: var(--solar-yellow-dark);
+  color: #000;
+}
+
+/* Header “solar” sencillo */
+.hero-solar{
+  background: linear-gradient(135deg, #FFE680, #FFD24D);
+  border-bottom: 1px solid #f1c40f33;
+}
+
+/* Tarjetas y formularios con micro-animación */
+.card, form{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover, form:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+/* =============================
+   CARRUSEL de MARCAS (Home)
+   ============================= 
+   Cinta infinita con logos/textos.
+*/
+.brands-strip{
+  overflow: hidden;
+  background: #fff;
+  border-radius: .75rem;
+  border: 1px solid #0000000f;
+}
+.brands-track{
+  display: flex;
+  gap: 3rem;
+  padding: 1rem 2rem;
+  width: max-content;
+  animation: scrollBrands 25s linear infinite;
+}
+.brands-item img{
+  height: 42px; width: auto; object-fit: contain;
+  filter: grayscale(100%);
+  opacity: .9;
+}
+.brands-item img:hover{ filter:none; opacity: 1; }
+
+@keyframes scrollBrands{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Galería */
+.gallery img{
+  height: 220px; object-fit: cover; border-radius: .5rem;
+}
+
+/* Footer */
+.site-footer{
+  background:#111;
+  color:#bbb;
+}
+.site-footer a{ color:#bbb; text-decoration:none; }
+.site-footer a:hover{ color:#fff; text-decoration:underline; }
+
+/* Tabla de contacto */
+.table-contact th{
+  background: #fafafa;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Permite que el contenido principal (section) crezca para empujar el footer */
+header { flex: 0 0 auto; }
+section { flex: 1 0 auto; }
+
+/* Asegura que el footer quede al final cuando el contenido es corto */
+.site-footer { margin-top: auto; }
